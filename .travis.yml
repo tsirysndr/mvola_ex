@@ -6,7 +6,7 @@ jobs:
       otp_release: '24.0'
 
 script:
-  - MIX_ENV=test mix do compile coveralls.json
+  - MIX_ENV=test mix coveralls.json
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
