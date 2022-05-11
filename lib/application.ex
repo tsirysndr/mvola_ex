@@ -1,11 +1,20 @@
 defmodule MVola.Application do
   use Application
 
-  def start(_type, _args) do
-    child_spec = [
-      spec_http_client(),
-    ]
-    Supervisor.start_link(child_spec, strategy: :one_for_one)
+  def start(_type, args) do
+    child_spec = case args do
+      [env: :prod] -> [
+        spec_http_client(),
+      ]
+      [env: :test] -> [
+        spec_http_client(),
+        {Plug.Cowboy, scheme: :http, plug: MVola.MockServer, options: [port: 8071]},
+      ]
+      [env: :dev] -> [spec_http_client(),]
+      [_] -> [spec_http_client(),]
+    end
+
+    Supervisor.start_link(child_spec, strategy: :one_for_one, name: MVola.Supervisor)
   end
 
   def http_name() do

@@ -1,5 +1,17 @@
 # Mvola
 
+<p>
+	<a href="https://app.travis-ci.com/github/tsirysndr/mvola_ex" target="_blank">
+    <img src="https://app.travis-ci.com/tsirysndr/mvola_ex.svg?branch=master" />
+  </a>
+  <a href="https://codecov.io/gh/tsirysndr/mvola_ex" target="_blank">
+    <img src="https://codecov.io/gh/tsirysndr/mvola_ex/branch/master/graph/badge.svg?token=" />
+  </a>
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-blue.svg" />
+  </a>
+</p>
+
 [MVola](https://www.mvola.mg/devportal) Elixir client library.
 
 ## Installation
@@ -10,7 +22,7 @@ by adding `mvola` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:mvola, "~> 0.1.0"}
+    {:mvola, "~> 0.2.0"}
   ]
 end
 ```

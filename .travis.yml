@@ -1,0 +1,15 @@
+language: elixir
+
+jobs:
+  include:
+    - elixir: '1.13.4'
+      otp_release: '24.0'
+
+script:
+  - MIX_ENV=test mix do compile coveralls.json
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+notifications:
+  email: false

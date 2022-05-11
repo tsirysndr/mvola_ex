@@ -58,7 +58,7 @@ defmodule MVola.Transaction do
 
       iex> consumer_key = "YOUR CONSUMER KEY"
       iex> consumer_secret = "YOUR CONSUMER SECRET"
-      iex> {:ok, res} = MVola.Auth.generate_token(consumer_key, consumer_secret, true)
+      iex> {:ok, res} = MVola.Auth.generate_token(consumer_key, consumer_secret)
       {:ok,
       %{
         "access_token" => "eyJ4NXQiOiJPRE5tWkRFMll6UTRNVEkxTVRZME1tSmhaR00yTUdWa1lUZGhOall5TWpnM01XTmpNalJqWWpnMll6bGpNRGRsWWpZd05ERmhZVGd6WkRoa1lUVm1OZyIsImtpZCI6Ik9ETm1aREUyWXpRNE1USTFNVFkwTW1KaFpHTTJNR1ZrWVRkaE5qWXlNamczTVdOak1qUmpZamcyWXpsak1EZGxZall3TkRGaFlUZ3paRGhrWVRWbU5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJ0c2lyeS5zbmRyQGdtYWlsLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTiIsImF1ZCI6IlNSSHNaaWpFaGJoTktvMkhHUXFjMVNHQnZZRWEiLCJuYmYiOjE2NTE3NzkxNTYsImF6cCI6IlNSSHNaaWpFaGJoTktvMkhHUXFjMVNHQnZZRWEiLCJzY29wZSI6IkVYVF9JTlRfTVZPTEFfU0NPUEUiLCJpc3MiOiJodHRwczpcL1wvYXBpbS5wcmVwLnRlbG1hLm1nOjk0NDNcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2NTE3ODI3NTYsImlhdCI6MTY1MTc3OTE1NiwianRpIjoiMjdiZjI3NzEtZTEzYy00ODVlLTg0YzQtYTIwMGRhZWRiNGQ2In0.Ei-ZVCaBNYjbzZ2vtLzgXw4JJ6DJwIz7jzkC_s2B4WtgB7cOLWqAh_6CiPp9P_4FOPzNkmlqKksziZREuEuzG0VXiB-4P9kHU7Wvt-83rzg3Qf2qSJkPS0ZlFV3P36msPdR5ziB3RQpfK0XMWHwKBfmWsTzxNqFQ05RomaCTSmaix5XAtkT0Jfij_RylKyuUo0yWQURMUf8Ndgo5PXFHmJuAjtwfk8WZ88VGFLN6qAPlwlaOTTGQHga6CKTtr-QyLhicZkK5Qo1UqfX5-RYLzHjoQWIRU1lUPg4J3KfK2vowgmgrJsU8OidA29xIzGD3HsR84zDomD3TB4EpkRSUoQ",
@@ -96,7 +96,7 @@ defmodule MVola.Transaction do
 
   """
   def get_transaction_details(transaction_id, options) do
-    {:ok, res} = MVola.Client.get(endpoint(transaction_id), headers(options), true)
+    {:ok, res} = MVola.Client.get(endpoint(transaction_id), headers(options))
     {:ok, res.body |> Jason.decode!()}
   end
 
@@ -106,7 +106,7 @@ defmodule MVola.Transaction do
 
       iex> consumer_key = "YOUR CONSUMER KEY"
       iex> consumer_secret = "YOUR CONSUMER SECRET"
-      iex> {:ok, res} = MVola.Auth.generate_token(consumer_key, consumer_secret, true)
+      iex> {:ok, res} = MVola.Auth.generate_token(consumer_key, consumer_secret)
       {:ok,
       %{
         "access_token" => "eyJ4NXQiOiJPRE5tWkRFMll6UTRNVEkxTVRZME1tSmhaR00yTUdWa1lUZGhOall5TWpnM01XTmpNalJqWWpnMll6bGpNRGRsWWpZd05ERmhZVGd6WkRoa1lUVm1OZyIsImtpZCI6Ik9ETm1aREUyWXpRNE1USTFNVFkwTW1KaFpHTTJNR1ZrWVRkaE5qWXlNamczTVdOak1qUmpZamcyWXpsak1EZGxZall3TkRGaFlUZ3paRGhrWVRWbU5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJ0c2lyeS5zbmRyQGdtYWlsLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTiIsImF1ZCI6IlNSSHNaaWpFaGJoTktvMkhHUXFjMVNHQnZZRWEiLCJuYmYiOjE2NTE3NzkxNTYsImF6cCI6IlNSSHNaaWpFaGJoTktvMkhHUXFjMVNHQnZZRWEiLCJzY29wZSI6IkVYVF9JTlRfTVZPTEFfU0NPUEUiLCJpc3MiOiJodHRwczpcL1wvYXBpbS5wcmVwLnRlbG1hLm1nOjk0NDNcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2NTE3ODI3NTYsImlhdCI6MTY1MTc3OTE1NiwianRpIjoiMjdiZjI3NzEtZTEzYy00ODVlLTg0YzQtYTIwMGRhZWRiNGQ2In0.Ei-ZVCaBNYjbzZ2vtLzgXw4JJ6DJwIz7jzkC_s2B4WtgB7cOLWqAh_6CiPp9P_4FOPzNkmlqKksziZREuEuzG0VXiB-4P9kHU7Wvt-83rzg3Qf2qSJkPS0ZlFV3P36msPdR5ziB3RQpfK0XMWHwKBfmWsTzxNqFQ05RomaCTSmaix5XAtkT0Jfij_RylKyuUo0yWQURMUf8Ndgo5PXFHmJuAjtwfk8WZ88VGFLN6qAPlwlaOTTGQHga6CKTtr-QyLhicZkK5Qo1UqfX5-RYLzHjoQWIRU1lUPg4J3KfK2vowgmgrJsU8OidA29xIzGD3HsR84zDomD3TB4EpkRSUoQ",
@@ -124,7 +124,7 @@ defmodule MVola.Transaction do
         user_language: "FR",
         version: "1.0"
       }
-      iex> MVola.Transaction.get_transaction_status("d4150b04-609d-4f04-b12e-6fde9298cf14",options)
+      iex> MVola.Transaction.get_transaction_status("d4150b04-609d-4f04-b12e-6fde9298cf14", options)
       {:ok,                                                                                                                                                     %{
         "notificationMethod" => "callback",
         "objectReference" => "",
@@ -134,7 +134,7 @@ defmodule MVola.Transaction do
   """
   def get_transaction_status(server_correlation_id, options) do
     {:ok, res} =
-      MVola.Client.get(endpoint("/status/" <> server_correlation_id), headers(options), true)
+      MVola.Client.get(endpoint("/status/" <> server_correlation_id), headers(options))
 
     {:ok, res.body |> Jason.decode!()}
   end
@@ -145,7 +145,7 @@ defmodule MVola.Transaction do
 
       iex> consumer_key = "YOUR CONSUMER KEY"
       iex> consumer_secret = "YOUR CONSUMER SECRET"
-      iex> {:ok, res} = MVola.Auth.generate_token(consumer_key, consumer_secret, true)
+      iex> {:ok, res} = MVola.Auth.generate_token(consumer_key, consumer_secret)
       {:ok,
       %{
         "access_token" => "eyJ4NXQiOiJPRE5tWkRFMll6UTRNVEkxTVRZME1tSmhaR00yTUdWa1lUZGhOall5TWpnM01XTmpNalJqWWpnMll6bGpNRGRsWWpZd05ERmhZVGd6WkRoa1lUVm1OZyIsImtpZCI6Ik9ETm1aREUyWXpRNE1USTFNVFkwTW1KaFpHTTJNR1ZrWVRkaE5qWXlNamczTVdOak1qUmpZamcyWXpsak1EZGxZall3TkRGaFlUZ3paRGhrWVRWbU5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJ0c2lyeS5zbmRyQGdtYWlsLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTiIsImF1ZCI6IlNSSHNaaWpFaGJoTktvMkhHUXFjMVNHQnZZRWEiLCJuYmYiOjE2NTE3NzkxNTYsImF6cCI6IlNSSHNaaWpFaGJoTktvMkhHUXFjMVNHQnZZRWEiLCJzY29wZSI6IkVYVF9JTlRfTVZPTEFfU0NPUEUiLCJpc3MiOiJodHRwczpcL1wvYXBpbS5wcmVwLnRlbG1hLm1nOjk0NDNcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2NTE3ODI3NTYsImlhdCI6MTY1MTc3OTE1NiwianRpIjoiMjdiZjI3NzEtZTEzYy00ODVlLTg0YzQtYTIwMGRhZWRiNGQ2In0.Ei-ZVCaBNYjbzZ2vtLzgXw4JJ6DJwIz7jzkC_s2B4WtgB7cOLWqAh_6CiPp9P_4FOPzNkmlqKksziZREuEuzG0VXiB-4P9kHU7Wvt-83rzg3Qf2qSJkPS0ZlFV3P36msPdR5ziB3RQpfK0XMWHwKBfmWsTzxNqFQ05RomaCTSmaix5XAtkT0Jfij_RylKyuUo0yWQURMUf8Ndgo5PXFHmJuAjtwfk8WZ88VGFLN6qAPlwlaOTTGQHga6CKTtr-QyLhicZkK5Qo1UqfX5-RYLzHjoQWIRU1lUPg4J3KfK2vowgmgrJsU8OidA29xIzGD3HsR84zDomD3TB4EpkRSUoQ",
@@ -189,7 +189,7 @@ defmodule MVola.Transaction do
 
   """
   def send_payment(tx, options) do
-    {:ok, res} = MVola.Client.post(endpoint(), headers(options), tx, true)
+    {:ok, res} = MVola.Client.post(endpoint(), headers(options), tx)
     {:ok, res.body |> Jason.decode!()}
   end
 end
