@@ -8,6 +8,13 @@ defmodule Mvola.MixProject do
       elixir: "~> 1.13",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ],
       description: description(),
       package: package(),
 
@@ -48,6 +55,7 @@ defmodule Mvola.MixProject do
       {:httpoison, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:poison, "~> 5.0"},
+      {:excoveralls, "~> 0.10", only: :test},
     ]
   end
 
