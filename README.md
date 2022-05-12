@@ -27,9 +27,18 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/mvola>.
+Add the configuration to your `config.exs`:
+```elixir
+config :mvola, api_base_url: "https://devapi.mvola.mg"
+```
+OR (production mode)
+```elixir
+config :mvola, api_base_url: "https://api.mvola.mg"
+```
+
+## Documentation
+
+For details and examples on all the functionality in this library, see the [documentation](https://hexdocs.pm/mvola).
 
 
 ## Author
